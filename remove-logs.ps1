@@ -44,8 +44,7 @@
 $path = "..\..\logs-test" 
 
 $filesToDelete = Get-ChildItem $path -Recurse -Include ("*.txt") | Where-Object {$_.CreationTime -lt $days} 
-$CountDeleted = 0
-$CountNotDeleted = 0
+
     try {
         Remove-Item $filesToDelete
         $CountDeleted++
@@ -56,6 +55,5 @@ $CountNotDeleted = 0
 
     Write-Host "Deleted files: $($CountDeleted)"
 
+    "Result : {0} file(s) deleted, {1} file(s) cant removed" -f $CountDeleted, $CountNotDeleted
 
-
-# "Result : {0} file(s) deleted, {1} file(s) cant removed" -f $CountDeleted, $CountNotDeleted
