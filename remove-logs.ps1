@@ -1,7 +1,7 @@
 # $path = "..\..\logs-test" 
 # $days = (Get-Date).AddDays(-14)
 # Get-ChildItem $path -Recurse -Include ("*.txt") | Where-Object {$_.CreationTime -lt $days} | Remove-Item
-# (Get-Item "C:\Users\luka.france\Desktop\logs-test\old-test-file.txt").CreationTime=("11 August 2021 15:00:00")
+# (Get-Item "C:\Users\luka.france\Desktop\logs-test\old-test-file1.txt").CreationTime=("11 August 2021 15:00:00")
 # (Get-Item "C:\Users\luka.france\Desktop\logs-test\old-test-file.txt").CreationTime=("11 August 2021 15:00:00")
 
 
@@ -42,7 +42,7 @@
 
 
 $path = "..\..\logs-test" 
-
+$days = (Get-Date).AddDays(-14) 
 $filesToDelete = Get-ChildItem $path -Recurse -Include ("*.txt") | Where-Object {$_.CreationTime -lt $days} 
 
     try {
