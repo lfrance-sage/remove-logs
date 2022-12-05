@@ -8,13 +8,13 @@
 
 
 $path = "..\..\logs-test"   
-$days = (Get-Date).AddDays(-14) 
+$days = (Get-Date).AddDays(-14)  # The number -14 is the time you want the files to delete after
 $filesToDelete = Get-ChildItem $path -Recurse -Include ("*.txt") | Where-Object {$_.CreationTime -lt $days} 
 
 foreach ($path in $path ) {
     Write-Host "Your Path is: $path" -ForegroundColor White
     Write-Host "Total files to be deleted are: $($filesToDelete.count)" -ForegroundColor Yellow
-        try {
+            try {
                 if (Test-Path $path) {
                     Write-Host "Checking $($path)" -ForegroundColor Cyan
                     Remove-Item $filesToDelete 
@@ -22,11 +22,10 @@ foreach ($path in $path ) {
                     Write-Warning "Failed to find or verify $path"
                 }
         }
-        catch {
+            catch {
           Write-Host "ERROR" -ForegroundColor Red
         }
-
-        Write-Host "Succesfully deleted: $($filesToDelete.Count) Files"
+            Write-Host "Succesfully deleted: $($filesToDelete.Count) Files"
 }
 
 
