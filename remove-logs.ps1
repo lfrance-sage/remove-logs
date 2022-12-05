@@ -7,7 +7,7 @@
 # (Get-Item "C:\Users\luka.france\Desktop\logs-test\testfile-old2.txt").CreationTime=("11 August 2021 15:00:00")
 
 
-$path = "..\..\logs-test"   
+$path = "..\..\logs-test"    #This is where we will set the path for the log files
 $days = (Get-Date).AddDays(-14)  # The number -14 is the time you want the files to delete after
 $filesToDelete = Get-ChildItem $path -Recurse -Include ("*.txt") | Where-Object {$_.CreationTime -lt $days} 
 
@@ -27,11 +27,6 @@ foreach ($path in $path ) {
         }
             Write-Host "Succesfully deleted: $($filesToDelete.Count) Files"
 }
-
-
-
-
-
 
 
 
