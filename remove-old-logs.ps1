@@ -7,6 +7,7 @@ New-Item -Path "C:\Users\luka.france\Desktop\logs-test" -Name "testfile-old2.txt
 (Get-Item "C:\Users\luka.france\Desktop\logs-test\testfile-old2.txt").CreationTime=("11 August 2021 15:00:00")
 
 
+Set-ItemProperty -Path "C:\Users\luka.france\Desktop\logs-test\testfile-old.txt" -Name "LastWriteTime" -Value  "8/20/2022 12:00:00 PM"
 
 function deleteLogs {    
     
